@@ -22,3 +22,6 @@
 [submodule "bundle/vim-bufexplorer"]
 	path = bundle/vim-bufexplorer
 	url = https://github.com/onehouse/vim-bufexplorer
+[submodule "bundle/vim-coffee-script"]
+	path = bundle/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
