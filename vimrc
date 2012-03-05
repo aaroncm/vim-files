@@ -64,6 +64,15 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+map <leader>tt :tabnew<cr>
+map <leader>te :tabedit<cr>
+map <leader>tc :tabclose<cr>
+map <leader>to :tabonly<cr>
+map <leader>tp :tabprevious<cr>
+map <leader>tf :tabfirst<cr>
+map <leader>tl :tablast<cr>
+map <leader>tm :tabmove<cr>
+
 syntax on
 set hlsearch
 set t_Co=256
