@@ -46,7 +46,7 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 nnoremap ; :
-nnoremap <leader>a :Ack
+nnoremap <leader>a :Ack 
 
 set wrap
 set textwidth=79
