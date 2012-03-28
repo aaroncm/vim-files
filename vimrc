@@ -97,3 +97,9 @@ set rnu
 endif 
 endfunc 
 nnoremap <leader>n :call g:ToggleNuMode()<cr>
+
+let g:neocomplcache_enable_at_startup = 1
+
+au VimEnter * RainbowParenthesesToggleAll
+au VimEnter * RainbowParenthesesToggle
+noremap <leader><tab> :RainbowParenthesesToggle<cr>
