@@ -26,7 +26,7 @@ set ttyfast
 set ruler
 set laststatus=2
 set number
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%{SyntasticStatuslineFlag()}%-14.(%l,%c%V%)\ %P
 
 
 let mapleader = ","
