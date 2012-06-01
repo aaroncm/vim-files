@@ -76,12 +76,12 @@ map <leader>tm :tabmove<cr>
 syntax on
 set hlsearch
 set t_Co=256
-set guifont=Menlo:h14
+set guifont=Menlo:h13
 set guioptions=-te
 set linespace=1
 colorscheme molokai
 if has("gui_running")
-    set transparency=4
+    set transparency=2
 endif
 
 filetype off
@@ -99,7 +99,19 @@ endfunc
 nnoremap <leader>n :call g:ToggleNuMode()<cr>
 
 let g:neocomplcache_enable_at_startup = 1
+"let g:SuperTabDefaultCompletionType = "context"
+"set completeopt=menuone,preview
+"au FileType python set omnifunc=pythoncomplete#Complete
 
 au VimEnter * RainbowParenthesesToggleAll
 au VimEnter * RainbowParenthesesToggle
 noremap <leader><tab> :RainbowParenthesesToggle<cr>
+
+set wildignore=*.pyc,*.o,.git,.hg
+
+if has('gui_running')
+    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+    autocmd CursorMoved * if pumvisible() == 0|pclose|endif
+endif
+
+au BufNewFile,BufRead *.jinja set filetype=jinja
