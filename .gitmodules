@@ -46,3 +46,18 @@
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/vim-indent-guide"]
+	path = bundle/vim-indent-guide
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "bundle/vim-ragtag"]
+	path = bundle/vim-ragtag
+	url = https://github.com/tpope/vim-ragtag.git
+[submodule "bundle/scala-vim-support"]
+	path = bundle/scala-vim-support
+	url = https://github.com/rosstimson/scala-vim-support
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = https://github.com/wincent/Command-T

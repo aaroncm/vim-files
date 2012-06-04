@@ -56,7 +56,7 @@ set colorcolumn=85
 inoremap jj <ESC>
 
 nnoremap <leader>q gqip
-nnoremap <leader>c :nohl<cr>
+nnoremap <leader>n :nohl<cr>
 
 nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <C-h> <C-w>h
@@ -76,7 +76,8 @@ nnoremap <C-l> <C-w>l
 syntax on
 set hlsearch
 set t_Co=256
-set guifont=Menlo:h13
+set guifont=Menlo\ for\ Powerline:h13
+let g:Powerline_symbols = 'fancy'
 set guioptions=-te
 set linespace=1
 colorscheme molokai
@@ -89,14 +90,14 @@ call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
 
-function! g:ToggleNuMode() 
-if(&rnu == 1) 
-set nu 
-else 
-set rnu 
-endif 
-endfunc 
-nnoremap <leader>n :call g:ToggleNuMode()<cr>
+"function! g:ToggleNuMode() 
+"if(&rnu == 1) 
+"set nu 
+"else 
+"set rnu 
+"endif 
+"endfunc 
+"nnoremap <leader>n :call g:ToggleNuMode()<cr>
 
 let g:neocomplcache_enable_at_startup = 1
 "let g:SuperTabDefaultCompletionType = "context"
