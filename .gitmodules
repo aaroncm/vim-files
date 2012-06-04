@@ -45,7 +45,7 @@
 	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
+	url = git@github.com:aaroncm/nerdcommenter.git
 [submodule "bundle/vim-indent-guide"]
 	path = bundle/vim-indent-guide
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
