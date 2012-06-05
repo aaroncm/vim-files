@@ -64,15 +64,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-"map <leader>tt :tabnew<cr>
-"map <leader>te :tabedit<cr>
-"map <leader>tc :tabclose<cr>
-"map <leader>to :tabonly<cr>
-"map <leader>tp :tabprevious<cr>
-"map <leader>tf :tabfirst<cr>
-"map <leader>tl :tablast<cr>
-"map <leader>tm :tabmove<cr>
-
 syntax on
 set hlsearch
 set t_Co=256
@@ -89,15 +80,6 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
-
-"function! g:ToggleNuMode() 
-"if(&rnu == 1) 
-"set nu 
-"else 
-"set rnu 
-"endif 
-"endfunc 
-"nnoremap <leader>n :call g:ToggleNuMode()<cr>
 
 let g:neocomplcache_enable_at_startup = 1
 "let g:SuperTabDefaultCompletionType = "context"
