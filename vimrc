@@ -71,7 +71,7 @@ set guifont=Menlo\ for\ Powerline:h13
 let g:Powerline_symbols = 'fancy'
 set guioptions=-te
 set linespace=1
-colorscheme molokai
+colorscheme codeschool
 if has("gui_running")
     set transparency=2
 endif
