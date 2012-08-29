@@ -58,9 +58,6 @@
 [submodule "bundle/scala-vim-support"]
 	path = bundle/scala-vim-support
 	url = https://github.com/rosstimson/scala-vim-support
-[submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = https://github.com/wincent/Command-T
-[submodule "bundle/VimClojure"]
-	path = bundle/VimClojure
-	url = https://github.com/vim-scripts/VimClojure
+[submodule "bundle/ctrlp"]
+	path = bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git

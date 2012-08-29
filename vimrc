@@ -95,7 +95,7 @@ set wildignore=*.pyc,*.o,.git,.hg
 if has('gui_running')
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
     autocmd CursorMoved * if pumvisible() == 0|pclose|endif
-    autocmd vimenter * if !argc() | NERDTree | endif
+    "autocmd vimenter * if !argc() | NERDTree | endif
 endif
 
 au BufNewFile,BufRead *.jinja set filetype=jinja
