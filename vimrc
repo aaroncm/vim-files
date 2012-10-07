@@ -54,6 +54,7 @@ set formatoptions=qrn1
 set colorcolumn=85
 
 inoremap jj <ESC>
+inoremap jk <ESC>
 
 nnoremap <leader>q gqip
 nnoremap <leader>n :nohl<cr>
@@ -64,13 +65,15 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+nnoremap <leader>t :CtrlP<cr>
+
 syntax on
 set hlsearch
 set t_Co=256
-set guifont=Menlo\ for\ Powerline:h13
+set guifont=Menlo\ for\ Powerline:h14
 let g:Powerline_symbols = 'fancy'
 set guioptions=-te
-set linespace=1
+set linespace=2
 colorscheme codeschool
 if has("gui_running")
     set transparency=2
