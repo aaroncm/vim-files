@@ -70,14 +70,16 @@ nnoremap <leader>t :CtrlP<cr>
 syntax on
 set hlsearch
 set t_Co=256
-set guifont=Menlo\ for\ Powerline:h14
+"set guifont=Menlo\ for\ Powerline:h14
+set guifont=Source\ Code\ Pro:h13
 let g:Powerline_symbols = 'fancy'
 set guioptions=-te
-set linespace=2
-colorscheme codeschool
-if has("gui_running")
-    set transparency=2
-endif
+set linespace=1
+"colorscheme codeschool
+colorscheme Tomorrow-Night
+"if has("gui_running")
+"    set transparency=2
+"endif
 
 filetype off
 call pathogen#infect()
@@ -85,9 +87,11 @@ call pathogen#helptags()
 filetype plugin indent on
 
 let g:neocomplcache_enable_at_startup = 1
+inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
 "let g:SuperTabDefaultCompletionType = "context"
 "set completeopt=menuone,preview
-"au FileType python set omnifunc=pythoncomplete#Complete
+set completeopt=menuone,longest
+au FileType python set omnifunc=pythoncomplete#Complete
 
 au VimEnter * RainbowParenthesesToggleAll
 au VimEnter * RainbowParenthesesToggle
@@ -103,4 +107,6 @@ endif
 
 au BufNewFile,BufRead *.jinja set filetype=jinja
 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+let g:syntastic_python_checker_args="--ignore=E501"
