@@ -81,9 +81,34 @@ colorscheme Tomorrow-Night
 "    set transparency=2
 "endif
 
+" Bundle stuff / bindlestiff
 filetype off
-call pathogen#infect()
-call pathogen#helptags()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" bundles go here
+
+Bundle 'aaroncm/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'pangloss/vim-javascript'
+Bundle 'tpope/vim-rails'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-rooter'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'Shougo/neocomplcache'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'groenewege/vim-less'
+Bundle 'ervandew/supertab'
+Bundle 'scrooloose/syntastic'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-ragtag'
+Bundle 'rosstimson/scala-vim-support'
+Bundle 'kien/ctrlp.vim'
+Bundle 'jeetsukumaran/vim-buffergator'
+
+" okay, finished bundling
 filetype plugin indent on
 
 let g:neocomplcache_enable_at_startup = 1
