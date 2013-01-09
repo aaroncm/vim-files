@@ -51,7 +51,7 @@ nnoremap <leader>a :Ack
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=85
+set colorcolumn=80
 
 inoremap jj <ESC>
 inoremap jk <ESC>
@@ -107,6 +107,10 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'rosstimson/scala-vim-support'
 Bundle 'kien/ctrlp.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
+Bundle 'vim-scripts/VimClojure'
+Bundle 'reusee/vim.rust'
+Bundle 'wlangstroth/vim-haskell'
+Bundle 'gberenfield/sjl-slimv'
 
 " okay, finished bundling
 filetype plugin indent on
@@ -135,3 +139,11 @@ au BufNewFile,BufRead *.jinja set filetype=jinja
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 let g:syntastic_python_checker_args="--ignore=E501"
+
+let g:buffergator_autoexpand_on_split=0
+
+let vimclojure#FuzzyIndent=1
+let vimclojure#HighlightBuiltins=1
+let vimclojure#HighlightContrib=1
+let vimclojure#DynamicHighlighting=1
+let vimclojure#ParenRainbow=1
