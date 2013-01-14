@@ -111,6 +111,7 @@ Bundle 'vim-scripts/VimClojure'
 Bundle 'reusee/vim.rust'
 Bundle 'wlangstroth/vim-haskell'
 Bundle 'gberenfield/sjl-slimv'
+Bundle 'hynek/vim-python-pep8-indent'
 
 " okay, finished bundling
 filetype plugin indent on
