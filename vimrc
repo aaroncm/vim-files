@@ -59,7 +59,7 @@ inoremap jk <ESC>
 nnoremap <leader>q gqip
 nnoremap <leader>n :nohl<cr>
 
-nnoremap <leader>w <C-w>v<C-w>l
+"nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -96,7 +96,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-rooter'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'Shougo/neocomplcache'
-Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
@@ -112,20 +111,16 @@ Bundle 'reusee/vim.rust'
 Bundle 'wlangstroth/vim-haskell'
 Bundle 'gberenfield/sjl-slimv'
 Bundle 'hynek/vim-python-pep8-indent'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'airblade/vim-gitgutter'
 
 " okay, finished bundling
 filetype plugin indent on
 
 let g:neocomplcache_enable_at_startup = 1
 inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-"let g:SuperTabDefaultCompletionType = "context"
-"set completeopt=menuone,preview
 set completeopt=menuone,longest
 au FileType python set omnifunc=pythoncomplete#Complete
-
-au VimEnter * RainbowParenthesesToggleAll
-au VimEnter * RainbowParenthesesToggle
-noremap <leader><tab> :RainbowParenthesesToggle<cr>
 
 set wildignore=*.pyc,*.o,.git,.hg
 
