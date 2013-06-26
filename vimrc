@@ -87,7 +87,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " bundles go here
 
-Bundle 'aaroncm/nerdcommenter'
+Bundle 'tpope/vim-commentary'
 Bundle 'scrooloose/nerdtree'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-rails'
