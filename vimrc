@@ -25,17 +25,21 @@ set cursorline
 set ttyfast
 set ruler
 set laststatus=2
-set number
-"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%{SyntasticStatuslineFlag()}%-14.(%l,%c%V%)\ %P
 
+set number
+set relativenumber
+" Always show line numbers, but only in current window.
+:au WinEnter * :setlocal relativenumber
+:au WinLeave * :setlocal norelativenumber
+" Absolute Line Numbers in Insert Mode
+:au InsertEnter * :set number
+:au InsertLeave * :set relativenumber
 
 let mapleader = ","
 
 set list
 set listchars=tab:▸\ ,eol:¬
 
-"nnoremap / /\v
-"vnoremap / /\v
 set ignorecase
 set smartcase
 set gdefault
@@ -59,7 +63,6 @@ inoremap jk <ESC>
 nnoremap <leader>q gqip
 nnoremap <leader>n :nohl<cr>
 
-"nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -70,16 +73,11 @@ nnoremap <leader>t :CtrlP<cr>
 syntax on
 set hlsearch
 set t_Co=256
-"set guifont=Menlo\ for\ Powerline:h14
 set guifont=Source\ Code\ Pro:h13
 let g:Powerline_symbols = 'fancy'
 set guioptions=-te
 set linespace=1
-"colorscheme codeschool
 colorscheme Tomorrow-Night
-"if has("gui_running")
-"    set transparency=2
-"endif
 
 " Bundle stuff / bindlestiff
 filetype off
@@ -95,15 +93,12 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-rooter'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'Shougo/neocomplcache'
 Bundle 'groenewege/vim-less'
-Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-ragtag'
-"Bundle 'rosstimson/scala-vim-support'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'kien/ctrlp.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
@@ -114,14 +109,10 @@ Bundle 'gberenfield/sjl-slimv'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'Valloric/YouCompleteMe'
 
 " okay, finished bundling
 filetype plugin indent on
-
-let g:neocomplcache_enable_at_startup = 1
-inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-set completeopt=menuone,longest
-au FileType python set omnifunc=pythoncomplete#Complete
 
 set wildignore=*.pyc,*.o,.git,.hg
 
@@ -133,9 +124,7 @@ endif
 
 au BufNewFile,BufRead *.jinja set filetype=jinja
 
-let g:SuperTabDefaultCompletionType = "<c-n>"
-
-let g:syntastic_python_checker_args="--ignore=E501"
+let g:syntastic_python_flake8_args="--ignore=E501,C0103"
 
 let g:buffergator_autoexpand_on_split=0
 
