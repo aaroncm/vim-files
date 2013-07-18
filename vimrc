@@ -62,6 +62,7 @@ inoremap jk <ESC>
 
 nnoremap <leader>q gqip
 nnoremap <leader>n :nohl<cr>
+nnoremap gb <C-^>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -73,11 +74,19 @@ nnoremap <leader>t :CtrlP<cr>
 syntax on
 set hlsearch
 set t_Co=256
-set guifont=Source\ Code\ Pro:h13
-let g:Powerline_symbols = 'fancy'
+set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+let g:airline_powerline_fonts=1
 set guioptions=-te
 set linespace=1
 colorscheme Tomorrow-Night
+
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_fugitive_prefix = '⭠'
+let g:airline_readonly_symbol = '⭤'
+let g:airline_linecolumn_prefix = '⭡'
 
 " Bundle stuff / bindlestiff
 filetype off
@@ -95,7 +104,8 @@ Bundle 'airblade/vim-rooter'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'groenewege/vim-less'
 Bundle 'scrooloose/syntastic'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
+Bundle 'bling/vim-bufferline'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-ragtag'
@@ -133,3 +143,5 @@ let vimclojure#HighlightBuiltins=1
 let vimclojure#HighlightContrib=1
 let vimclojure#DynamicHighlighting=1
 let vimclojure#ParenRainbow=1
+
+let g:gitgutter_eager=0
