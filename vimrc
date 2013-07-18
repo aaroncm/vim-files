@@ -112,7 +112,8 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'kien/ctrlp.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'vim-scripts/VimClojure'
+" Bundle 'vim-scripts/VimClojure'
+Bundle 'guns/vim-clojure-static'
 Bundle 'wting/rust.vim'
 Bundle 'wlangstroth/vim-haskell'
 Bundle 'gberenfield/sjl-slimv'
@@ -120,6 +121,7 @@ Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'kien/rainbow_parentheses.vim'
 
 " okay, finished bundling
 filetype plugin indent on
@@ -142,6 +144,11 @@ let vimclojure#FuzzyIndent=1
 let vimclojure#HighlightBuiltins=1
 let vimclojure#HighlightContrib=1
 let vimclojure#DynamicHighlighting=1
-let vimclojure#ParenRainbow=1
+" let vimclojure#ParenRainbow=1
 
 let g:gitgutter_eager=0
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
