@@ -112,7 +112,6 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'kien/ctrlp.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
-" Bundle 'vim-scripts/VimClojure'
 Bundle 'guns/vim-clojure-static'
 Bundle 'wting/rust.vim'
 Bundle 'wlangstroth/vim-haskell'
@@ -122,6 +121,8 @@ Bundle 'jnwhiteh/vim-golang'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'kien/rainbow_parentheses.vim'
+" Bundle 'amdt/vim-niji'
+Bundle 'tomasr/molokai'
 
 " okay, finished bundling
 filetype plugin indent on
@@ -148,7 +149,18 @@ let vimclojure#DynamicHighlighting=1
 
 let g:gitgutter_eager=0
 
-au VimEnter * RainbowParenthesesToggle
+" au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+nnoremap <leader>r :RainbowParenthesesToggle<cr>
+let g:rbpt_colorpairs =  [['red', 'red3'],
+            \ ['darkyellow', 'orangered3'],
+            \ ['darkgreen', 'orange2'],
+            \ ['blue', 'yellow3'],
+            \ ['darkmagenta', 'olivedrab4'],
+            \ ['red', 'green4'],
+            \ ['darkyellow', 'paleturquoise3'],
+            \ ['darkgreen', 'deepskyblue4'],
+            \ ['blue', 'darkslateblue'],
+            \ ['darkmagenta', 'darkviolet']]
