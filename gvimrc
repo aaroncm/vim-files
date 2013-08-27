@@ -4,7 +4,7 @@ if has("gui_macvim")
     macmenu &File.New\ Tab key=<nop>
     map <D-t> :CtrlP<CR>
     map <D-p> :CtrlP<CR>
-    nmap <D-/> gcc
+    nmap <D-/> gccj
     vmap <D-/> gc
     map <D-[> <<
     map <D-]> >>

@@ -76,7 +76,7 @@ set hlsearch
 set t_Co=256
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13
 let g:airline_powerline_fonts=1
-set guioptions=-te
+set guioptions=-ter
 set linespace=1
 colorscheme Tomorrow-Night
 
@@ -123,6 +123,8 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'kien/rainbow_parentheses.vim'
 " Bundle 'amdt/vim-niji'
 Bundle 'tomasr/molokai'
+Bundle 'mhinz/vim-startify'
+Bundle 'vim-scripts/Align'
 
 " okay, finished bundling
 filetype plugin indent on
@@ -148,6 +150,8 @@ let vimclojure#DynamicHighlighting=1
 " let vimclojure#ParenRainbow=1
 
 let g:gitgutter_eager=0
+
+let g:bufferline_rotate=1
 
 " au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
