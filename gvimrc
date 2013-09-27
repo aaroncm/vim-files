@@ -2,8 +2,10 @@
 if has("gui_macvim")
     macmenu &File.Print key=<nop>
     macmenu &File.New\ Tab key=<nop>
+    macmenu &Tools.Make key=<nop>
     map <D-t> :CtrlP<CR>
     map <D-p> :CtrlP<CR>
+    map <D-b> <leader>b
     nmap <D-/> gccj
     vmap <D-/> gc
     map <D-[> <<
