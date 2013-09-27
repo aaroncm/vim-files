@@ -125,6 +125,8 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'tomasr/molokai'
 Bundle 'mhinz/vim-startify'
 Bundle 'vim-scripts/Align'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'tpope/vim-markdown'
 
 " okay, finished bundling
 filetype plugin indent on
