@@ -175,6 +175,25 @@ let g:rbpt_colorpairs =  [['red', 'red3'],
             \ ['darkgreen', 'deepskyblue4'],
             \ ['blue', 'darkslateblue'],
             \ ['darkmagenta', 'darkviolet']]
+
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+let g:unite_enable_start_insert = 1
+let g:unite_enable_short_source_names = 1
+" Like ctrlp.vim settings.
+let g:unite_enable_start_insert = 1
+let g:unite_winheight = 10
+let g:unite_split_rule = 'botright'
+let g:unite_source_file_rec_max_cache_files = 10000
+call unite#custom#source('file_mru,file_rec,file_rec/async,grepocate',
+        \ 'max_candidates', 10000)
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts = '--nocolor --nogroup -S'
+let g:unite_source_grep_recursive_opt = ''
+
+let g:haddock_browser = "open"
+let g:haddock_browser_callformat = "%s %s"
+
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
