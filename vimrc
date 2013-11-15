@@ -50,7 +50,6 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 nnoremap ; :
-nnoremap <leader>a :Ack 
 
 set wrap
 set textwidth=79
@@ -69,7 +68,11 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nnoremap <leader>t :CtrlP<cr>
+" nnoremap <leader>t :CtrlP<cr>
+nnoremap <leader>t :Unite file_rec/async<cr>
+nnoremap <leader>b :Unite -no-start-insert buffer<cr>
+nnoremap <leader>g :Unite grep:.<cr>
+nnoremap <leader>a :Unite grep:.<cr>
 
 syntax on
 set hlsearch
@@ -111,7 +114,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-ragtag'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'kien/ctrlp.vim'
-Bundle 'jeetsukumaran/vim-buffergator'
+" Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'guns/vim-clojure-static'
 Bundle 'wting/rust.vim'
 Bundle 'travitch/hasksyn'
@@ -121,13 +124,14 @@ Bundle 'jnwhiteh/vim-golang'
 Bundle 'airblade/vim-gitgutter'
 " Bundle 'Valloric/YouCompleteMe'
 Bundle 'kien/rainbow_parentheses.vim'
-" Bundle 'amdt/vim-niji'
 Bundle 'tomasr/molokai'
 Bundle 'mhinz/vim-startify'
-Bundle 'vim-scripts/Align'
-Bundle 'jiangmiao/auto-pairs'
+" Bundle 'jiangmiao/auto-pairs'
 Bundle 'tpope/vim-markdown'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/neocomplete.vim'
+Bundle 'lukerandall/haskellmode-vim'
 
 " okay, finished bundling
 filetype plugin indent on
@@ -144,7 +148,7 @@ au BufNewFile,BufRead *.jinja set filetype=jinja
 
 let g:syntastic_python_flake8_args="--ignore=E501,C0103"
 
-let g:buffergator_autoexpand_on_split=0
+" let g:buffergator_autoexpand_on_split=0
 
 let vimclojure#FuzzyIndent=1
 let vimclojure#HighlightBuiltins=1
