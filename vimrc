@@ -119,7 +119,7 @@ Bundle 'gberenfield/sjl-slimv'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 Bundle 'kien/rainbow_parentheses.vim'
 " Bundle 'amdt/vim-niji'
 Bundle 'tomasr/molokai'
@@ -127,6 +127,7 @@ Bundle 'mhinz/vim-startify'
 Bundle 'vim-scripts/Align'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'tpope/vim-markdown'
+Bundle 'Shougo/neocomplete.vim'
 
 " okay, finished bundling
 filetype plugin indent on
@@ -170,3 +171,12 @@ let g:rbpt_colorpairs =  [['red', 'red3'],
             \ ['darkgreen', 'deepskyblue4'],
             \ ['blue', 'darkslateblue'],
             \ ['darkmagenta', 'darkviolet']]
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
