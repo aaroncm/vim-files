@@ -1,1 +1,1 @@
-let b:AutoPairs = {}
+let b:autopairs_loaded=1
