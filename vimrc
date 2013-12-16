@@ -137,6 +137,7 @@ Bundle 'lukerandall/haskellmode-vim'
 Bundle 'chriskempson/base16-vim'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
+Bundle 'rking/ag.vim'
 
 " okay, finished bundling
 filetype plugin indent on
