@@ -156,6 +156,7 @@ endif
 au BufNewFile,BufRead *.jinja set filetype=jinja
 
 let g:syntastic_python_flake8_args="--ignore=E501,C0103"
+let g:syntastic_haskell_ghc_mod_args="-g -fno-warn-type-defaults"
 
 " let g:buffergator_autoexpand_on_split=0
 
