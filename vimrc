@@ -122,7 +122,7 @@ Bundle 'wting/rust.vim'
 Bundle 'travitch/hasksyn'
 Bundle 'gberenfield/sjl-slimv'
 Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'jnwhiteh/vim-golang'
+Bundle 'Blackrush/vim-gocode'
 Bundle 'airblade/vim-gitgutter'
 " Bundle 'Valloric/YouCompleteMe'
 Bundle 'kien/rainbow_parentheses.vim'
@@ -232,3 +232,5 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
+
+let g:gocode_gofmt_tabs=' -tabs=true'
