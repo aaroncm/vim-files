@@ -81,7 +81,7 @@ set guifont=Source\ Code\ Pro\ for\ Powerline:h13
 let g:airline_powerline_fonts=1
 set guioptions=-ter
 set linespace=1
-" colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night
 
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
@@ -138,12 +138,10 @@ Bundle 'chriskempson/base16-vim'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'rking/ag.vim'
+Bundle 'majutsushi/tagbar'
 
 " okay, finished bundling
 filetype plugin indent on
-
-set background=dark
-colorscheme base16-tomorrow
 
 set wildignore=*.pyc,*.o,.git,.hg
 

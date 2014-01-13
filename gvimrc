@@ -13,6 +13,9 @@ if has("gui_macvim")
     map <D-[> <<
     map <D-]> >>
 
+    set background=dark
+    colorscheme base16-tomorrow
+
     let g:airline_left_sep = ''
     let g:airline_left_alt_sep = ''
     let g:airline_right_sep = ''
