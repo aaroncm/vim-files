@@ -72,7 +72,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader>t :Unite file_rec/async<cr>
 nnoremap <leader>b :Unite -no-start-insert buffer<cr>
 nnoremap <leader>g :Unite grep:.<cr>
-nnoremap <leader>a :Unite grep:.<cr>
+" nnoremap <leader>a :Unite grep:.<cr>
 
 syntax on
 set hlsearch
@@ -99,7 +99,7 @@ call vundle#rc()
 
 Bundle 'tpope/vim-commentary'
 Bundle 'scrooloose/nerdtree'
-Bundle 'pangloss/vim-javascript'
+" Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-fugitive'
@@ -139,6 +139,12 @@ Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'rking/ag.vim'
 Bundle 'majutsushi/tagbar'
+Bundle 'timrobinson/fsharp-vim'
+Bundle 'ahayman/vim-nodejs-complete'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'marijnh/tern_for_vim'
+Bundle 'godlygeek/tabular'
+Bundle 'elzr/vim-json'
 
 " okay, finished bundling
 filetype plugin indent on
@@ -224,7 +230,7 @@ inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#force_omni_input_patterns')
@@ -232,3 +238,8 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 
 let g:gocode_gofmt_tabs=' -tabs=true'
+
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
