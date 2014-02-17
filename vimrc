@@ -140,11 +140,13 @@ Bundle 'rizzatti/dash.vim'
 Bundle 'rking/ag.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'timrobinson/fsharp-vim'
-Bundle 'ahayman/vim-nodejs-complete'
+" Bundle 'ahayman/vim-nodejs-complete'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'godlygeek/tabular'
 Bundle 'elzr/vim-json'
+Bundle 'Chiel92/vim-autoformat'
+Bundle 'kchmck/vim-coffee-script'
 
 " okay, finished bundling
 filetype plugin indent on
@@ -243,3 +245,6 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
+
+let g:formatprg_args_expr_javascript = '"-w 72 -j -f - -".(&expandtab ? "s ".&shiftwidth : "t")'
+noremap <C-f> :Autoformat<CR>
