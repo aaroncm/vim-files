@@ -68,11 +68,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" nnoremap <leader>t :CtrlP<cr>
 nnoremap <leader>t :Unite file_rec/async<cr>
 nnoremap <leader>b :Unite -no-start-insert buffer<cr>
 nnoremap <leader>g :Unite grep:.<cr>
-" nnoremap <leader>a :Unite grep:.<cr>
 
 syntax on
 set hlsearch
@@ -99,7 +97,6 @@ call vundle#rc()
 
 Bundle 'tpope/vim-commentary'
 Bundle 'scrooloose/nerdtree'
-" Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-fugitive'
@@ -114,7 +111,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-ragtag'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'kien/ctrlp.vim'
-" Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
@@ -124,7 +120,6 @@ Bundle 'gberenfield/sjl-slimv'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'Blackrush/vim-gocode'
 Bundle 'airblade/vim-gitgutter'
-" Bundle 'Valloric/YouCompleteMe'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'tomasr/molokai'
 Bundle 'mhinz/vim-startify'
@@ -140,7 +135,6 @@ Bundle 'rizzatti/dash.vim'
 Bundle 'rking/ag.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'timrobinson/fsharp-vim'
-" Bundle 'ahayman/vim-nodejs-complete'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'godlygeek/tabular'
@@ -164,19 +158,15 @@ au BufNewFile,BufRead *.jinja set filetype=jinja
 let g:syntastic_python_flake8_args="--ignore=E501,C0103"
 let g:syntastic_haskell_ghc_mod_args="-g -fno-warn-type-defaults"
 
-" let g:buffergator_autoexpand_on_split=0
-
 let vimclojure#FuzzyIndent=1
 let vimclojure#HighlightBuiltins=1
 let vimclojure#HighlightContrib=1
 let vimclojure#DynamicHighlighting=1
-" let vimclojure#ParenRainbow=1
 
 let g:gitgutter_eager=0
 
 let g:bufferline_rotate=1
 
-" au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
