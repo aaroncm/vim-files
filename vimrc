@@ -146,6 +146,7 @@ Bundle 'gkz/vim-ls'
 Bundle 'jimenezrick/vimerl'
 Bundle 'vim-scripts/omlet.vim'
 Bundle 'bitc/vim-hdevtools'
+Bundle 'davidhalter/jedi-vim'
 
 " okay, finished bundling
 filetype plugin indent on
@@ -235,6 +236,8 @@ if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.ocaml = '[^. *\t]\.\w*\|\h\w*|#'
+
+let g:jedi#popup_on_dot = 0
 
 let g:gocode_gofmt_tabs=' -tabs=true'
 
