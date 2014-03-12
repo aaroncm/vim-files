@@ -69,6 +69,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 nnoremap <leader>t :Unite file_rec/async<cr>
+nnoremap <leader>p :Unite file_rec/async<cr>
 nnoremap <leader>b :Unite -no-start-insert buffer<cr>
 nnoremap <leader>g :Unite grep:.<cr>
 
@@ -128,6 +129,7 @@ Bundle 'tpope/vim-markdown'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/neocomplete.vim'
+Bundle 'eagletmt/neco-ghc'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'chriskempson/base16-vim'
 Bundle 'rizzatti/funcoo.vim'
@@ -140,7 +142,10 @@ Bundle 'marijnh/tern_for_vim'
 Bundle 'godlygeek/tabular'
 Bundle 'elzr/vim-json'
 Bundle 'Chiel92/vim-autoformat'
-Bundle 'kchmck/vim-coffee-script'
+Bundle 'gkz/vim-ls'
+Bundle 'jimenezrick/vimerl'
+Bundle 'vim-scripts/omlet.vim'
+Bundle 'bitc/vim-hdevtools'
 
 " okay, finished bundling
 filetype plugin indent on
@@ -225,9 +230,11 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 " autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
+let g:neocomplete#force_omni_input_patterns.ocaml = '[^. *\t]\.\w*\|\h\w*|#'
 
 let g:gocode_gofmt_tabs=' -tabs=true'
 
@@ -238,3 +245,15 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 
 let g:formatprg_args_expr_javascript = '"-w 72 -j -f - -".(&expandtab ? "s ".&shiftwidth : "t")'
 noremap <C-f> :Autoformat<CR>
+
+let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
+execute "set rtp+=".s:ocamlmerlin."/vim"
+execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
+let g:syntastic_ocaml_checkers = ['merlin']
+
+let g:ocp_indent_vimfile = system("opam config var share")
+let g:ocp_indent_vimfile = substitute(g:ocp_indent_vimfile, '[\r\n]*$', '', '')
+let g:ocp_indent_vimfile = g:ocp_indent_vimfile . "/vim/syntax/ocp-indent.vim"
+autocmd FileType ocaml exec ":source " . g:ocp_indent_vimfile
+au FileType ocaml nnoremap <C-f> :call OcpIndentBuffer()<CR>
+au FileType ocaml vnoremap <C-f> :call OcpIndentRange()<CR>
