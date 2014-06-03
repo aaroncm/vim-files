@@ -36,6 +36,7 @@ set relativenumber
 :au InsertLeave * :set relativenumber
 
 let mapleader = ","
+let maplocalleader = "_"
 
 set list
 set listchars=tab:▸\ ,eol:¬
@@ -106,7 +107,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'groenewege/vim-less'
 Bundle 'scrooloose/syntastic'
 Bundle 'bling/vim-airline'
-Bundle 'bling/vim-bufferline'
+" Bundle 'bling/vim-bufferline'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-ragtag'
@@ -146,7 +147,16 @@ Bundle 'gkz/vim-ls'
 Bundle 'jimenezrick/vimerl'
 Bundle 'vim-scripts/omlet.vim'
 Bundle 'bitc/vim-hdevtools'
-Bundle 'davidhalter/jedi-vim'
+" Bundle 'davidhalter/jedi-vim'
+Bundle 'hail2u/vim-css3-syntax'
+" Bundle 'b4winckler/vim-objc'
+" Bundle 'vim-scripts/javacomplete'
+Bundle 'nosami/Omnisharp'
+Bundle 'OrangeT/vim-csharp'
+Bundle 'tpope/vim-dispatch'
+" Bundle 'Valloric/YouCompleteMe'
+Bundle 'osyo-manga/vim-reunions'
+Bundle 'osyo-manga/vim-marching'
 
 " okay, finished bundling
 filetype plugin indent on
@@ -160,9 +170,11 @@ if has('gui_running')
 endif
 
 au BufNewFile,BufRead *.jinja set filetype=jinja
+au BufNewFile,BufRead *.m set filetype=objc
 
 let g:syntastic_python_flake8_args="--ignore=E501,C0103"
 let g:syntastic_haskell_ghc_mod_args="-g -fno-warn-type-defaults"
+let g:syntastic_haskell_hdevtools_args=g:syntastic_haskell_ghc_mod_args
 
 let vimclojure#FuzzyIndent=1
 let vimclojure#HighlightBuiltins=1
@@ -208,6 +220,7 @@ let g:haddock_browser_callformat = "%s %s"
 
 set completeopt-=preview
 
+let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#force_overwrite_completefunc = 1
@@ -216,26 +229,24 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
-" <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.ocaml = '[^. *\t]\.\w*\|\h\w*|#'
+let g:neocomplete#force_omni_input_patterns.omlet = '[^. *\t]\.\w*\|\h\w*|#'
+let g:neocomplete#force_omni_input_patterns.cs = '.*[^=\);]'
 
 let g:jedi#popup_on_dot = 0
 
@@ -246,8 +257,24 @@ vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 
-let g:formatprg_args_expr_javascript = '"-w 72 -j -f - -".(&expandtab ? "s ".&shiftwidth : "t")'
 noremap <C-f> :Autoformat<CR>
+let g:formatprg_args_expr_javascript = '"-w 80 -j -f - -".(&expandtab ? "s ".&shiftwidth : "t")'
+let g:formatprg_json = "jq"
+let g:formatprg_args_json = "."
+let g:formatprg_args_expr_c = '"--mode=c --style=linux --indent-namespaces -jOpcH".(&expandtab ? "s".&shiftwidth : "t")'
+let g:formatprg_args_expr_cpp = '"--mode=c --style=linux --indent-namespaces -OjpcH".(&expandtab ? "s".&shiftwidth : "t")'
+let g:formatprg_args_expr_java = '"--mode=java --style=java -jOpcH".(&expandtab ? "s".&shiftwidth : "t")'
+let g:formatprg_args_expr_cs = '"--mode=cs --style=ansi --indent-namespaces -OjpcH".(&expandtab ? "s".&shiftwidth : "t")'
+
+" let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_c_checkers = ['gcc', 'oclint', 'cppcheck']
+let g:syntastic_cs_checkers = ['syntax', 'issues']
+autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
+
+autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
+set updatetime=500
+" set cmdheight=2
+
 
 let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
 execute "set rtp+=".s:ocamlmerlin."/vim"
@@ -260,3 +287,12 @@ let g:ocp_indent_vimfile = g:ocp_indent_vimfile . "/vim/syntax/ocp-indent.vim"
 autocmd FileType ocaml exec ":source " . g:ocp_indent_vimfile
 au FileType ocaml nnoremap <C-f> :call OcpIndentBuffer()<CR>
 au FileType ocaml vnoremap <C-f> :call OcpIndentRange()<CR>
+
+let g:vim_json_syntax_conceal = 0
+
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_semantic_triggers = {
+    \ 'omlet': ['.', '#'],
+\ }
+
+let g:EclimCompletionMethod = 'omnifunc'

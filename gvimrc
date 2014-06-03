@@ -1,5 +1,5 @@
 set background=dark
-colorscheme base16-tomorrow
+colorscheme base16-aaron
 
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
