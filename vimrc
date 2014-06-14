@@ -154,9 +154,13 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'nosami/Omnisharp'
 Bundle 'OrangeT/vim-csharp'
 Bundle 'tpope/vim-dispatch'
-" Bundle 'Valloric/YouCompleteMe'
 Bundle 'osyo-manga/vim-reunions'
 Bundle 'osyo-manga/vim-marching'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-lua-ftplugin'
+Bundle 'xolox/vim-lua-inspect'
+Bundle 'jdonaldson/vaxe'
 
 " okay, finished bundling
 filetype plugin indent on
@@ -228,7 +232,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
+  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
@@ -247,6 +251,7 @@ endif
 let g:neocomplete#force_omni_input_patterns.ocaml = '[^. *\t]\.\w*\|\h\w*|#'
 let g:neocomplete#force_omni_input_patterns.omlet = '[^. *\t]\.\w*\|\h\w*|#'
 let g:neocomplete#force_omni_input_patterns.cs = '.*[^=\);]'
+let g:neocomplete#force_omni_input_patterns.go = '[^. \t]\.\w*'
 
 let g:jedi#popup_on_dot = 0
 
@@ -261,10 +266,10 @@ noremap <C-f> :Autoformat<CR>
 let g:formatprg_args_expr_javascript = '"-w 80 -j -f - -".(&expandtab ? "s ".&shiftwidth : "t")'
 let g:formatprg_json = "jq"
 let g:formatprg_args_json = "."
-let g:formatprg_args_expr_c = '"--mode=c --style=linux --indent-namespaces -jOpcH".(&expandtab ? "s".&shiftwidth : "t")'
-let g:formatprg_args_expr_cpp = '"--mode=c --style=linux --indent-namespaces -OjpcH".(&expandtab ? "s".&shiftwidth : "t")'
-let g:formatprg_args_expr_java = '"--mode=java --style=java -jOpcH".(&expandtab ? "s".&shiftwidth : "t")'
-let g:formatprg_args_expr_cs = '"--mode=cs --style=ansi --indent-namespaces -OjpcH".(&expandtab ? "s".&shiftwidth : "t")'
+let g:formatprg_args_expr_c = '"--mode=c --style=linux --indent-namespaces -jOUpcH".(&expandtab ? "s".&shiftwidth : "t")'
+let g:formatprg_args_expr_cpp = '"--mode=c --style=linux --indent-namespaces -OUjpcH".(&expandtab ? "s".&shiftwidth : "t")'
+let g:formatprg_args_expr_java = '"--mode=java --style=java -jUOpcH".(&expandtab ? "s".&shiftwidth : "t")'
+let g:formatprg_args_expr_cs = '"--mode=cs --style=ansi --indent-namespaces -OUjpcH".(&expandtab ? "s".&shiftwidth : "t")'
 
 " let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_c_checkers = ['gcc', 'oclint', 'cppcheck']
@@ -289,10 +294,5 @@ au FileType ocaml nnoremap <C-f> :call OcpIndentBuffer()<CR>
 au FileType ocaml vnoremap <C-f> :call OcpIndentRange()<CR>
 
 let g:vim_json_syntax_conceal = 0
-
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_semantic_triggers = {
-    \ 'omlet': ['.', '#'],
-\ }
 
 let g:EclimCompletionMethod = 'omnifunc'
