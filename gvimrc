@@ -1,5 +1,6 @@
 set background=dark
-colorscheme base16-aaron
+
+colorscheme base16-ocean
 
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
@@ -23,5 +24,6 @@ if has("gui_macvim")
     vmap <D-/> gc
     map <D-[> <<
     map <D-]> >>
-endif
 
+    autocmd VimEnter * nested :call tagbar#autoopen(1)
+endif
