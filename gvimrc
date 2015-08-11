@@ -17,8 +17,9 @@ if has("gui_macvim")
     macmenu &Tools.Make key=<nop>
     " map <D-t> :CtrlP<CR>
     " map <D-p> :CtrlP<CR>
-    map <D-t> :Unite file_rec/async<CR>
-    map <D-p> :Unite file_rec/async<CR>
+    map <D-t> :Unite -start-insert file_rec/async<CR>
+    map <D-p> :Unite -start-insert file_rec/async<CR>
+    map <D-b> :Unite buffer<CR>
     map <D-b> <leader>b
     nmap <D-/> gccj
     vmap <D-/> gc
