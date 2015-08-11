@@ -16,18 +16,19 @@ let g:airline_powerline_fonts=1
 set guioptions=-ter
 set linespace=1
 
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-sensible'
+Plug 'Shougo/unite.vim'
+Plug 'chriskempson/base16-vim'
+Plug 'majutsushi/tagbar'
+
+call plug#end()
+
+
+set background=dark
 colorscheme base16-ocean
-
-" Bundle stuff / bindlestiff
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" bundles go here
-
-Bundle 'tpope/vim-sensible'
-Bundle 'Shougo/unite.vim'
-Bundle 'chriskempson/base16-vim'
-Bundle 'majutsushi/tagbar'
 
 " okay, finished bundling
 filetype plugin indent on
