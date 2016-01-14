@@ -36,18 +36,23 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'Shougo/unite.vim'
 Plug 'chriskempson/base16-vim'
+Plug 'w0ng/vim-hybrid'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdtree'
 
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/vimproc.vim'
 
 Plug 'scrooloose/syntastic'
+
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
 
 Plug 'elixir-lang/vim-elixir', {'for': 'elixir'}
 Plug 'mattreduce/vim-mix', {'for': 'elixir'}
@@ -60,11 +65,15 @@ Plug 'garyburd/go-explorer', {'for': 'go'}
 
 Plug 'jimenezrick/vimerl', {'for': 'erlang'}
 
+Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
+
+Plug 'elmcast/elm-vim', {'for': 'elm'}
+
 call plug#end()
 
 
 set background=dark
-colorscheme base16-ocean
+colorscheme hybrid
 
 """ okay, finished bundling
 filetype plugin indent on
@@ -97,7 +106,7 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
