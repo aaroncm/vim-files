@@ -1,6 +1,6 @@
 set background=dark
 
-colorscheme base16-ocean
+"colorscheme base16-ocean
 
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''

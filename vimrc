@@ -5,11 +5,6 @@ set shell=/bin/zsh
 
 inoremap fd <ESC>
 
-nnoremap <leader>t :Unite -start-insert file_rec/async<cr>
-nnoremap <leader>p :Unite -start-insert file_rec/async<cr>
-nnoremap <leader>b :Unite -no-start-insert buffer<cr>
-nnoremap <leader>g :Unite grep:.<cr>
-
 syntax on
 set hlsearch
 set t_Co=256
@@ -46,6 +41,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
 
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/vimproc.vim'
@@ -58,7 +54,7 @@ Plug 'elixir-lang/vim-elixir', {'for': 'elixir'}
 Plug 'mattreduce/vim-mix', {'for': 'elixir'}
 
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
-Plug 'phildawes/racer', {'for': 'rust'}
+Plug 'racer-rust/vim-racer', {'for': 'rust'}
 
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'garyburd/go-explorer', {'for': 'go'}
@@ -68,6 +64,18 @@ Plug 'jimenezrick/vimerl', {'for': 'erlang'}
 Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
 
 Plug 'elmcast/elm-vim', {'for': 'elm'}
+
+Plug 'dleonard0/pony-vim-syntax', {'for': 'pony'}
+
+Plug 'lukerandall/haskellmode-vim', {'for': 'haskell'}
+Plug 'eagletmt/ghcmod-vim', {'for': 'haskell'}
+Plug 'eagletmt/neco-ghc', {'for': 'haskell'}
+
+Plug 'guns/vim-clojure-static', {'for': 'clojure'}
+Plug 'tpope/vim-fireplace', {'for': 'clojure'}
+Plug 'vim-scripts/paredit.vim', {'for': 'clojure'}
+
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
@@ -96,7 +104,16 @@ function! s:my_cr_function()
   return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"inoremap <expr><Tab>  neocomplete#start_manual_complete()
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ neocomplete#start_manual_complete()
+function! s:check_back_space() "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
+
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
@@ -115,10 +132,36 @@ endif
 let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.go = '\h\w*\.\?'
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1    
+
+
+
+""" unite
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <leader>t :Unite -start-insert file_rec/async<cr>
+nnoremap <leader>p :Unite -start-insert file_rec/async<cr>
+nnoremap <leader>b :Unite -no-start-insert buffer<cr>
+nnoremap <leader>g :Unite grep:.<cr>
 
 """ rust
 let g:racer_cmd = "/Users/aaron/Devel/source-repos/racer/target/release/racer"
 let $RUST_SRC_PATH="/Users/aaron/Devel/source-repos/rust/src/"
+let g:rustfmt_autosave = 1
 
 """ golang
 let g:go_fmt_command = "goimports"
+
+""" haskell
+let g:haddock_browser = "open"
+let g:haddock_browser_callformat = "%s %s"
+let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
+let g:haskellmode_completion_ghc = 0
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
