@@ -19,6 +19,8 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 
+set completeopt="menuone"
+
 set number
 set relativenumber
 " Absolute Line Numbers in Insert Mode
@@ -29,10 +31,11 @@ set relativenumber
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
+Plug 'rking/ag.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Shougo/unite.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'w0ng/vim-hybrid'
-Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
@@ -40,42 +43,43 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
-
-Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/vimproc.vim'
+
+Plug 'Valloric/YouCompleteMe'
 
 Plug 'scrooloose/syntastic'
 
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'Chiel92/vim-autoformat'
 
-Plug 'elixir-lang/vim-elixir', {'for': 'elixir'}
-Plug 'mattreduce/vim-mix', {'for': 'elixir'}
+Plug 'davidhalter/jedi-vim'
 
-Plug 'rust-lang/rust.vim', {'for': 'rust'}
-Plug 'racer-rust/vim-racer', {'for': 'rust'}
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+Plug 'mattreduce/vim-mix'
+Plug 'larrylv/ycm-elixir'
 
-Plug 'fatih/vim-go', {'for': 'go'}
-Plug 'garyburd/go-explorer', {'for': 'go'}
+Plug 'rust-lang/rust.vim'
+"Plug 'racer-rust/vim-racer'
 
-Plug 'jimenezrick/vimerl', {'for': 'erlang'}
+Plug 'fatih/vim-go'
+Plug 'garyburd/go-explorer'
 
-Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
+Plug 'jimenezrick/vimerl'
 
-Plug 'elmcast/elm-vim', {'for': 'elm'}
+Plug 'vim-ruby/vim-ruby'
 
-Plug 'dleonard0/pony-vim-syntax', {'for': 'pony'}
+Plug 'neovimhaskell/haskell-vim'
+Plug 'eagletmt/ghcmod-vim'
+Plug 'eagletmt/neco-ghc'
 
-Plug 'lukerandall/haskellmode-vim', {'for': 'haskell'}
-Plug 'eagletmt/ghcmod-vim', {'for': 'haskell'}
-Plug 'eagletmt/neco-ghc', {'for': 'haskell'}
-
-Plug 'guns/vim-clojure-static', {'for': 'clojure'}
-Plug 'tpope/vim-fireplace', {'for': 'clojure'}
-Plug 'vim-scripts/paredit.vim', {'for': 'clojure'}
+Plug 'guns/vim-clojure-static'
+Plug 'tpope/vim-fireplace'
+Plug 'vim-scripts/paredit.vim'
 
 Plug 'pangloss/vim-javascript'
+"Plug 'ternjs/tern_for_vim'
+Plug 'kchmck/vim-coffee-script'
 
 call plug#end()
 
